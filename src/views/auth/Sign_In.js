@@ -56,7 +56,7 @@ export default function SignIn({navigation}) {
               styleBtn={[styles.btn]}
               title={'Sign in'}
               textStyle={[styles.text, {color: '#FFFFFF'}]}
-              // onPress={() => navigation.navigate('SignIn')}
+              onPress={() => navigation.navigate('Home')}
               bordered
               // bgColor
             />

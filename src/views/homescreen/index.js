@@ -15,7 +15,7 @@ import {Convenient, Financial, Service} from '../../utils/data';
 import {ic_imgChard} from '../../assets/Images';
 import {Carousel} from 'react-native-snap-carousel';
 const SLIDER_WIDTH = Dimensions.get('window').width;
-const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH); 
 export default function Home() {
   const [message, setmessage] = useState('2 hours ago');
   const [offers, setoffers] = useState('2 hours ago');
@@ -162,7 +162,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   inputs: {
     left: 10,
-    width: 255,
+    width: 225,
     marginRight: 25,
   },
   containerInput: {

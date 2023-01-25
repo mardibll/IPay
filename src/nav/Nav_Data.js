@@ -27,35 +27,35 @@ import Home from '../views/homescreen';
 // ];
 
 export const dataStack = [
-  // {
-  //   name: 'Splash',
-  //   component: Splash,
-  // },
-  // {
-  //   name: 'CreateAccount',
-  //   component: CreateAccount,
-  // },
-  // {
-  //   name: 'SignUp',
-  //   component: SignUp,
-  // },
-  // {
-  //   name: 'SignIn',
-  //   component: SignIn,
-  // },
-  // {
-  //   name: 'SinUpEmail',
-  //   component: SinUpEmail,
-  // },
-  // {
-  //   name: 'Succes',
-  //   component: Succes,
-  // },
+  {
+    name: 'Splash',
+    component: Splash,
+  },
+  {
+    name: 'CreateAccount',
+    component: CreateAccount,
+  },
+  {
+    name: 'SignUp',
+    component: SignUp,
+  },
+  {
+    name: 'SignIn',
+    component: SignIn,
+  },
+  {
+    name: 'SinUpEmail',
+    component: SinUpEmail,
+  },
+  {
+    name: 'Succes',
+    component: Succes,
+  },
 
-  // {
-  //   name: 'Veriffy',
-  //   component: Veriffy,
-  // },
+  {
+    name: 'Veriffy',
+    component: Veriffy,
+  },
   {
     name: 'Home',
     component: Home,
