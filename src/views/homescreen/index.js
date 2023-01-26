@@ -15,7 +15,7 @@ import {Convenient, Financial, Service} from '../../utils/data';
 import {ic_imgChard} from '../../assets/Images';
 import {Carousel} from 'react-native-snap-carousel';
 const SLIDER_WIDTH = Dimensions.get('window').width;
-const ITEM_WIDTH = Math.round(SLIDER_WIDTH); 
+const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
 export default function Home() {
   const [message, setmessage] = useState('2 hours ago');
   const [offers, setoffers] = useState('2 hours ago');
@@ -33,13 +33,19 @@ export default function Home() {
             color={'#BBBBBB'}
           />
           <TextInputs
+            inputContainer={{margin: 0, borderWidth: 0}}
             icon
-            styles={styles.inputs}
             placeholder={'Search for products or services '}
             placeholderTextColor={'#BBBBBB'}
           />
         </View>
-        <Icons name={'plus'} type={'AntDesign'} size={23} color={'#FFFFFF'} />
+        <Icons
+          style={{marginLeft: 10}}
+          name={'plus'}
+          type={'AntDesign'}
+          size={23}
+          color={'#FFFFFF'}
+        />
       </View>
       <View>
         <View style={styles.position} />
@@ -160,17 +166,13 @@ export default function Home() {
   );
 }
 const styles = StyleSheet.create({
-  inputs: {
-    left: 10,
-    width: 225,
-    marginRight: 25,
-  },
   containerInput: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'white',
     paddingLeft: 15,
     borderRadius: 10,
+    flex: 1,
   },
   head: {
     flexDirection: 'row',

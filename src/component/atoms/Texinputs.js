@@ -14,25 +14,28 @@ export default function TextInputs({
   title,
   value,
   isSecurity,
+  inputContainer,
   ...props
 }) {
   const [focused, setfocused] = useState(false);
   const [securePassword, setsecurePassword] = useState(true);
   return (
-    <View style={style.containerInput}>
-      {focused && title && <Texts style={{fontSize: 16}}>{title}</Texts>}
+    <View style={[style.containerInput, inputContainer]}>
+      {focused && title && (
+        <Texts style={{fontSize: 16, marginTop: 4}}>{title}</Texts>
+      )}
       <View style={style.container}>
         <TextInput
           placeholderTextColor="grey"
           onFocus={() => setfocused(true)}
           {...props}
-          style={styles}
+          style={[styles, style.input]}
           value={value}
           secureTextEntry={isSecurity && securePassword}
         />
         {isSecurity && (
           <TouchableOpacity
-            style={style.icon}
+            style={[style.icon, focused && title && {marginTop: -25}]}
             onPress={() => {
               setsecurePassword(!securePassword);
             }}>
@@ -52,32 +55,25 @@ export default function TextInputs({
 
 const style = StyleSheet.create({
   container: {
-    // height: 40,
-    // width: 300,
-    // backgroundColor: 'red',
-    // paddingVertical: ,
-    // marginVertical: 2,
-    // borderRadius: 20,
-    // borderWidth:1,
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   containerInput: {
-    width: 340,
+    width: '90%',
+    flex: 1,
     borderRadius: 10,
     paddingLeft: 15,
     borderWidth: 1.5,
     borderColor: '#CDD4D9',
-    paddingTop: 5,
     margin: 13,
   },
   input: {
-    borderRadius: 20,
-    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    flex: 1,
   },
   icon: {
-    position: 'absolute',
-    right: 16,
+    marginHorizontal: 6,
+    marginRight: 15,
   },
 });
