@@ -13,6 +13,10 @@ import TextInputs from '../../component/atoms/Texinputs';
 
 export default function SignIn({navigation}) {
   const [hidepass, sethidepass] = useState({isSecureTextEntry: true});
+  const [auth, setauth] = useState({
+    email: '',
+    password: '',
+  });
   return (
     <ScrollView style={{backgroundColor: '#FFFFFF'}}>
       <View style={{flex: 1}}>
@@ -27,29 +31,19 @@ export default function SignIn({navigation}) {
         </TouchableOpacity>
         <Texts style={styles.title}>Sign in to your account</Texts>
         <View style={{alignItems: 'center'}}>
-          <View style={styles.containerInput}>
-            <Text style={{fontSize: 16}}>Email</Text>
-            <TextInputs
-              placeholder={'Input Your Email'}
-              placeholderTextColor={'grey'}
-            />
-          </View>
-          <View style={styles.containerInput}>
-            <Text style={{fontSize: 16}}>Password</Text>
-            <TextInputs
-              placeholder={'Input Your Password'}
-              placeholderTextColor={'grey'}
-              secureTextEntry={hidepass.isSecureTextEntry ? true : false}
-              icon
-              typeicon={'FontAwesome'}
-              nameicon={hidepass.isSecureTextEntry ? 'eye-slash' : 'eye'}
-              onPress={() =>
-                sethidepass({
-                  isSecureTextEntry: !hidepass.isSecureTextEntry,
-                })
-              }
-            />
-          </View>
+          <TextInputs
+            title="Email"
+            placeholder={'Input Your Email'}
+            value={auth.email}
+            onChangeText={text => setauth({...auth, email: text})}
+          />
+          <TextInputs
+            title={'Password'}
+            placeholder={'Input Your Password'}
+            value={auth.password}
+            onChangeText={text => setauth({...auth, password: text})}
+            isSecurity
+          />
           <Texts style={styles.forgot}>Forgot your password?</Texts>
           <View style={{paddingTop: 20}}>
             <Buttons
