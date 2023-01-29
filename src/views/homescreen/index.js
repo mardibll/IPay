@@ -16,7 +16,7 @@ import {ic_imgChard} from '../../assets/Images';
 import {Carousel} from 'react-native-snap-carousel';
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
-export default function Home() {
+export default function Home({navigation}) {
   const [message, setmessage] = useState('2 hours ago');
   const [offers, setoffers] = useState('2 hours ago');
   const [images, setimages] = useState([
@@ -82,7 +82,14 @@ export default function Home() {
             {Service.map((item, index) => {
               return (
                 <View key={index}>
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                    style={{marginVertical: 2}}
+                    onPress={() => {
+                      if (item.name == 'Top Up') {
+                        navigation.navigate('TopUP');
+                      } else {
+                      }
+                    }}>
                     <View
                       style={{
                         width: 60,
@@ -93,7 +100,13 @@ export default function Home() {
                         source={item.img}
                         style={{height: 30, width: 30}}
                       />
-                      <Texts style={styles.textname}>{item.name}</Texts>
+                      <Texts
+                        style={[
+                          styles.textname,
+                          {width: 62, textAlign: 'center'},
+                        ]}>
+                        {item.name}
+                      </Texts>
                     </View>
                   </TouchableOpacity>
                 </View>

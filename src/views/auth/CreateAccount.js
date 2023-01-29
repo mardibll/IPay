@@ -1,10 +1,11 @@
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import React from 'react';
 import {ic_create} from '../../assets/Images';
 import Texts from '../../component/atoms/Textst';
 import Buttons from '../../component/atoms/Buttons';
 
+import React, {useEffect} from 'react';
 export default function CreateAccount({navigation}) {
+
   return (
     <View style={{alignItems: 'center', flex: 1, backgroundColor: '#F5F5F5'}}>
       <Image source={ic_create} style={{height: 400, width: 400}} />
@@ -25,7 +26,7 @@ export default function CreateAccount({navigation}) {
           styleBtn={styles.btn}
           title={'Create an account'}
           textStyle={styles.text}
-          onPress={() => navigation.navigate('SignUp')}
+          onPress={() => navigation.replace('SignUp')}
           bordered
         />
         <View style={{flexDirection: 'row', paddingTop: 30}}>

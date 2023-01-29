@@ -12,8 +12,11 @@ import TextInputs from '../../component/atoms/Texinputs';
 import Buttons from '../../component/atoms/Buttons';
 
 export default function SinUpEmail({navigation}) {
-  const [hidepass, sethidepass] = useState({isSecureTextEntry: true});
-  const [hideconfir, sethideconfir] = useState({isShow: true});
+  const [authregist, setauthregist] = useState({
+    email: '',
+    password: '',
+    confirm: '',
+  });
   return (
     <ScrollView style={{backgroundColor: '#FFFFFF'}}>
       <View style={{flex: 1}}>
@@ -28,47 +31,26 @@ export default function SinUpEmail({navigation}) {
         </TouchableOpacity>
         <View style={{alignItems: 'center'}}>
           <Texts style={styles.title}>Create an account.</Texts>
-          <View style={styles.containerInput}>
-            <Text style={{fontSize: 16}}>Email</Text>
-            <TextInputs
-              placeholder={'Input Your Email'}
-              placeholderTextColor={'grey'}
-            />
-          </View>
-          <View style={styles.containerInput}>
-            <TextInputs
-              justifyContent
-              styles={{alignItems: 'center', paddingVertical: 21}}
-              placeholder={'Input Your Password'}
-              placeholderTextColor={'grey'}
-              secureTextEntry={hideconfir.isShow ? true : false}
-              icon
-              typeicon={'FontAwesome'}
-              nameicon={hideconfir.isShow ? 'eye-slash' : 'eye'}
-              onPress={() =>
-                sethideconfir({
-                  isShow: !hideconfir.isShow,
-                })
-              }
-            />
-          </View>
-          <View style={styles.containerInput}>
-            <TextInputs
-              justifyContent
-              styles={{alignItems: 'center', paddingVertical: 20}}
-              placeholder={'Input Your Password'}
-              placeholderTextColor={'grey'}
-              secureTextEntry={hidepass.isSecureTextEntry ? true : false}
-              icon
-              typeicon={'FontAwesome'}
-              nameicon={hidepass.isSecureTextEntry ? 'eye-slash' : 'eye'}
-              onPress={() =>
-                sethidepass({
-                  isSecureTextEntry: !hidepass.isSecureTextEntry,
-                })
-              }
-            />
-          </View>
+          <TextInputs
+            title="Email"
+            placeholder={'Input Your Email'}
+            value={authregist.email}
+            onChangeText={val => setauthregist({...authregist, email: val})}
+          />
+          <TextInputs
+            title={'Password'}
+            placeholder={'Input Your Password'}
+            value={authregist.password}
+            onChangeText={val => setauthregist({...authregist, password: val})}
+            isSecurity
+          />
+          <TextInputs
+            title={'Confirmasi password'}
+            placeholder={'password confirmation'}
+            value={authregist.confirm}
+            onChangeText={val => setauthregist({...authregist, confirm: val})}
+            isSecurity
+          />
           <Buttons
             styleBtn={styles.btn}
             title={'Create an account'}

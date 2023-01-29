@@ -38,34 +38,34 @@ export const Convenient = [
 export const Service = [
   {
     img: require('../assets/image_Home/travel.png'),
-    name: 'Card Repay',
+    name: 'Travel',
   },
   {
     img: require('../assets/image_Home/top_Up.png'),
-    name: 'Savings',
+    name: 'Top Up',
   },
   {
     img: require('../assets/image_Home/utilities.png'),
-    name: 'Invest',
+    name: 'Utilities',
   },
   {
     img: require('../assets/image_Home/city.png'),
-    name: 'Exchange',
+    name: 'City Services',
   },
   {
     img: require('../assets/image_Home/rewards.png'),
-    name: 'Card Repay',
+    name: 'Rewards',
   },
   {
     img: require('../assets/image_Home/femily.png'),
-    name: 'Savings',
+    name: 'Family Center',
   },
   {
     img: require('../assets/image_Home/credit.png'),
-    name: 'Invest',
+    name: 'Credit Life',
   },
   {
     img: require('../assets/image_Home/more.png'),
-    name: 'Exchange',
+    name: 'More',
   },
 ];

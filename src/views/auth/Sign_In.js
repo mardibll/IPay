@@ -70,7 +70,7 @@ export default function SignIn({navigation}) {
               />
             </View>
             <View style={{paddingTop: 20}}>
-              <Buttons
+              <Buttons 
                 styleBtn={styles.btn}
                 title={'Sign in with Google'}
                 textStyle={[styles.text, {color: '#1890FF'}]}
