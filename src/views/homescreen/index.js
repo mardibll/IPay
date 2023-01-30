@@ -56,7 +56,14 @@ export default function Home({navigation}) {
             {Financial.map((item, index) => {
               return (
                 <View key={index}>
-                  <TouchableOpacity style={{alignItems: 'center'}}>
+                  <TouchableOpacity
+                    style={{alignItems: 'center'}}
+                    onPress={() => {
+                      if (item.name == 'Pocket') {
+                        navigation.navigate('ScreenPocket');
+                      } else {
+                      }
+                    }}>
                     <Image source={item.img} style={{height: 30, width: 30}} />
                     <Texts style={styles.textname}>{item.name}</Texts>
                   </TouchableOpacity>

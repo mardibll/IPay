@@ -12,7 +12,12 @@ export default function TopUP({navigation}) {
   return (
     <>
       <View style={{zIndex: 99999, backgroundColor: '#1677FF', width: '100%'}}>
-        <HeadScreens nav={navigation} />
+        <HeadScreens
+          nav={navigation}
+          text_name={'Top Up'}
+          darw={true}
+          onPress={() => navigation.goBack()}
+        />
       </View>
       <Tab.Navigator
         screenOptions={({route, navigation}) => ({

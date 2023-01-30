@@ -1,12 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const CardPocket = () => {
+export default function TabTicket() {
   return (
     <View>
-      <Text>CardPocket</Text>
+      <Text>Tab_Ticket</Text>
     </View>
   )
 }
-
-export default CardPocket

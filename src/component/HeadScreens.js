@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import Icons from './atoms/Icons';
 import Texts from './atoms/Textst';
 
-export default function HeadScreens({nav}) {
+export default function HeadScreens({onPress, text_name, darw}) {
   const [hide, sethide] = useState(true);
   const head_data = {
     icon_left: <Icons type={'AntDesign'} name={'left'} size={25} />,
@@ -18,25 +18,32 @@ export default function HeadScreens({nav}) {
   };
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => nav.goBack()}>
-        <Icons type={'AntDesign'} name={'left'} size={25} />
-      </TouchableOpacity>
-      <View style={{position: 'absolute', left: 160}}>
-        <Texts style={styles.Top_up}>Top Up</Texts>
-      </View>
-      <View style={styles.icon_right}>
-        {hide ? (
-          <TouchableOpacity>
-            <Text style={{color: '#FFFFFF'}}>{head_data.icon_right}</Text>
-          </TouchableOpacity>
-        ) : (
-          false
-        )}
-        {hide ? <Text style={styles.grid} /> : false}
-        <TouchableOpacity onPress={() => sethide(!hide)}>
-          <Text style={{color: '#FFFFFF'}}>{head_data.icon_right2}</Text>
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity onPress={onPress}>
+          <Text style={{color: '#FFFFFF'}}>{head_data.icon_left}</Text>
         </TouchableOpacity>
+        <View style={{}}>
+          <Texts style={styles.Top_up}>{text_name}</Texts>
+        </View>
       </View>
+
+      {darw ? (
+        <View style={styles.icon_right}>
+          {hide ? (
+            <TouchableOpacity>
+              <Text style={{color: '#FFFFFF'}}>{head_data.icon_right}</Text>
+            </TouchableOpacity>
+          ) : (
+            false
+          )}
+          {hide ? <Text style={styles.grid} /> : false}
+          <TouchableOpacity onPress={() => sethide(!hide)}>
+            <Text style={{color: '#FFFFFF'}}>{head_data.icon_right2}</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        false
+      )}
     </View>
   );
 }
@@ -46,12 +53,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 15,
+    width: '100%',
   },
   Top_up: {
     color: '#FFFFFF',
     fontSize: 20,
     fontWeight: '600',
-    textAlign: 'center',
+    paddingLeft: 125,
   },
   icon_right: {
     flexDirection: 'row',

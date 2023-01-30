@@ -6,6 +6,7 @@ import Splash from '../views/auth/Splash';
 import Succes from '../views/auth/Succes';
 import Veriffy from '../views/auth/Veriffy';
 import Home from '../views/homescreen';
+import ScreenPocket from '../views/homescreen/components/pocket';
 import TopUP from '../views/homescreen/components/top_up';
 
 // const dataTab = [
@@ -64,6 +65,10 @@ export const dataStack = [
   {
     name: 'TopUP',
     component: TopUP,
+  },
+  {
+    name: 'ScreenPocket',
+    component: ScreenPocket,
   },
   
 ];
