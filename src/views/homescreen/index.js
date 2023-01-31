@@ -12,7 +12,7 @@ import TextInputs from '../../component/atoms/Texinputs';
 import Icons from '../../component/atoms/Icons';
 import Texts from '../../component/atoms/Textst';
 import {Convenient, Financial, Service} from '../../utils/data';
-import {ic_imgChard} from '../../assets/Images';
+import {ic_avatar, ic_imgChard} from '../../assets/Images';
 import {Carousel} from 'react-native-snap-carousel';
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
@@ -25,6 +25,13 @@ export default function Home({navigation}) {
   return (
     <View style={{flex: 1, backgroundColor: '#EEEEEE'}}>
       <View style={styles.head}>
+        <TouchableOpacity activeOpacity={0.7}>
+          <Image
+            resizeMode="contain"
+            source={ic_avatar}
+            style={styles.avatar}
+          />
+        </TouchableOpacity>
         <View style={styles.containerInput}>
           <Icons
             name={'search1'}
@@ -251,5 +258,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 15,
     paddingBottom: 50,
+  },
+  avatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 100,
+    marginRight: 8,
   },
 });
