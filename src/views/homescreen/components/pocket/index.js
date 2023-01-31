@@ -12,17 +12,19 @@ export default function ScreenPocket({navigation}) {
   return (
     <>
       <View style={{zIndex: 99999, backgroundColor: '#1677FF', width: '100%'}}>
-        <HeadScreens nav={navigation} text_name={'Pocket'} />
+        <HeadScreens
+          nav={navigation}
+          text_name={'Pocket'}
+          onPress={() => navigation.goBack()}
+        />
       </View>
       <Tab.Navigator
         screenOptions={({route, navigation}) => ({
-          tabBarAccessibilityLabel: 'red',
-          tabBarActiveTintColor: 'red',
           ...TransitionPresets.SlideFromRightIOS,
           tabBarStyle: {
             backgroundColor: '#1677FF',
-            borderBottomColor: '#DDDDDD',
-            borderBottomWidth: 1,
+            borderBottomColor: '#FFFFFF',
+            borderBottomWidth: 2,
           },
           tabBarIconStyle: {
             height: 30,
@@ -31,27 +33,8 @@ export default function ScreenPocket({navigation}) {
             justifyContent: 'center',
           },
           tabBarLabelStyle: {color: '#FFFFFF'},
-          tabBarIcon: ({focused, color, size}) => {
-            let iconName;
-            let iconType;
-            if (route.name === 'Cards') {
-              iconName = 'home-outline';
-              iconType = 'Ionicons';
-            } else if (route.name === 'Tickets') {
-              iconType = 'Ionicons';
-              iconName = 'document-text-outline';
-            } else if (route.name === 'Documents') {
-              iconType = 'Ionicons';
-              iconName = 'newspaper-outline';
-            }
-            return (
-              <Icons
-                type={iconType}
-                name={iconName}
-                size={30}
-                color={'#FFFFFF'}
-              />
-            );
+          tabBarIndicatorStyle: {
+            backgroundColor: 'white',
           },
         })}>
         <Tab.Screen name="Cards" component={TabCard} />

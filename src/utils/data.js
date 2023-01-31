@@ -1,3 +1,5 @@
+import Icons from '../component/atoms/Icons';
+
 export const Financial = [
   {
     img: require('../assets/image_Home/scan.png'),
@@ -69,3 +71,9 @@ export const Service = [
     name: 'More',
   },
 ];
+export const trevel_card = {
+  text: '',
+  btn_name: 'View All',
+  color:'black',
+  icon: <Icons type={'AntDesign'} name={'right'} size={20} />,
+};

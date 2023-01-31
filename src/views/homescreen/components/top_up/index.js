@@ -36,6 +36,9 @@ export default function TopUP({navigation}) {
             justifyContent: 'center',
           },
           tabBarLabelStyle: {color: '#FFFFFF'},
+          tabBarIndicatorStyle: {
+            backgroundColor: 'white',
+          },
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
             let iconType;
