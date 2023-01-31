@@ -33,7 +33,7 @@ export default function CreateAccount({navigation}) {
           <Texts style={[styles.textNav, {color: '#000000'}]}>
             Already have an account?
           </Texts>
-          <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+          <TouchableOpacity onPress={() => navigation.replace('SignIn')}>
             <Texts style={[styles.textNav, {color: '#1890FF'}]}> Sign In</Texts>
           </TouchableOpacity>
         </View>

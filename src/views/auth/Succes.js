@@ -35,7 +35,7 @@ export default function Succes({navigation}) {
             <Texts style={[styles.textNav, {color: '#000000'}]}>
               Didn’t receive it?
             </Texts>
-            <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+            <TouchableOpacity onPress={() => navigation.replace('SignIn')}>
               <Texts style={[styles.textNav, {color: '#1890FF'}]}>
                 Click here
               </Texts>

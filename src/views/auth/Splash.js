@@ -1,7 +1,8 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import Texts from '../../component/atoms/Textst';
 import {logosplash} from '../../assets/Images';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Splash({navigation}) {
   useEffect(() => {
@@ -9,8 +10,16 @@ export default function Splash({navigation}) {
       create();
     }, 2000);
   }, []);
-  const create = () => {
-    navigation.replace('CreateAccount');
+  const create = async () => {
+    try {
+      // await AsyncStorage.removeItem('token');//menghapus isi token
+      const value = await AsyncStorage.getItem('token');
+      if (value !== null) {
+        navigation.replace('Home');
+      } else {
+        navigation.replace('CreateAccount');
+      }
+    } catch (error) {}
   };
   return (
     <View style={styles.container}>

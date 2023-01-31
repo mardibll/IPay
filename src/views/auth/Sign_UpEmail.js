@@ -55,7 +55,7 @@ export default function SinUpEmail({navigation}) {
             styleBtn={styles.btn}
             title={'Create an account'}
             textStyle={[styles.text, {color: '#FFFFFF'}]}
-            onPress={() => navigation.navigate('Succes')}
+            onPress={() => navigation.replace('Succes')}
             bordered
           />
           <Texts style={styles.body}>
@@ -65,7 +65,7 @@ export default function SinUpEmail({navigation}) {
             <Texts style={[styles.textNav, {color: '#000000'}]}>
               Already have an account?
             </Texts>
-            <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+            <TouchableOpacity onPress={() => navigation.replace('SignIn')}>
               <Texts style={[styles.textNav, {color: '#1890FF'}]}>
                 {' '}
                 Sign In

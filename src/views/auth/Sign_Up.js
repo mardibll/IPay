@@ -34,7 +34,7 @@ export default function SignUp({navigation}) {
             styleBtn={styles.btn}
             title={'Sign up with email'}
             textStyle={styles.text}
-            onPress={() => navigation.navigate('SinUpEmail')}
+            onPress={() => navigation.replace('SinUpEmail')}
             bordered
           />
         </View>
@@ -42,7 +42,7 @@ export default function SignUp({navigation}) {
           <Texts style={[styles.textNav, {color: '#000000'}]}>
             Already have an account?
           </Texts>
-          <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+          <TouchableOpacity onPress={() => navigation.replace('SignIn')}>
             <Texts style={[styles.textNav, {color: '#1890FF'}]}> Sign In</Texts>
           </TouchableOpacity>
         </View>

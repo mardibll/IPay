@@ -4,19 +4,35 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  ToastAndroid,
 } from 'react-native';
 import React, {useState} from 'react';
 import Texts from '../../component/atoms/Textst';
 import Buttons from '../../component/atoms/Buttons';
 import Icons from '../../component/atoms/Icons';
 import TextInputs from '../../component/atoms/Texinputs';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SignIn({navigation}) {
-  const [hidepass, sethidepass] = useState({isSecureTextEntry: true});
   const [auth, setauth] = useState({
     email: '',
     password: '',
   });
+
+  const doLogin = async () => {
+    if (auth.email === '') {
+      ToastAndroid.show(`${Object.keys(auth)[0]} can't be null `, 2000);
+    } else if (auth.password === '') {
+      ToastAndroid.show(`${Object.keys(auth)[1]} can't be null `, 2000);
+    } else if (auth.password.length < 8) {
+      ToastAndroid.show(`${Object.keys(auth)[1]} min 8 characters `, 2000);
+    } else {
+      try {
+        await AsyncStorage.setItem('token', auth.email);
+        navigation.replace('Home');
+      } catch (error) {}
+    }
+  };
   return (
     <ScrollView style={{backgroundColor: '#FFFFFF'}}>
       <View style={{flex: 1}}>
@@ -50,7 +66,7 @@ export default function SignIn({navigation}) {
               styleBtn={[styles.btn]}
               title={'Sign in'}
               textStyle={[styles.text, {color: '#FFFFFF'}]}
-              onPress={() => navigation.navigate('Home')}
+              onPress={doLogin}
               bordered
               // bgColor
             />
@@ -70,7 +86,7 @@ export default function SignIn({navigation}) {
               />
             </View>
             <View style={{paddingTop: 20}}>
-              <Buttons 
+              <Buttons
                 styleBtn={styles.btn}
                 title={'Sign in with Google'}
                 textStyle={[styles.text, {color: '#1890FF'}]}
