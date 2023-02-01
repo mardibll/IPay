@@ -1,4 +1,4 @@
-package com.ipay;
+package com.ipays;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
