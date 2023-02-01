@@ -74,6 +74,11 @@ export const Service = [
 export const trevel_card = {
   text: '',
   btn_name: 'View All',
-  color:'black',
+  color: 'black',
   icon: <Icons type={'AntDesign'} name={'right'} size={20} />,
+};
+export const scans = {
+  icon_pay: <Icons type={'Ionicons'} name={'ios-qr-code-sharp'} size={40}color={'white'} />,
+  icon_img: <Icons type={'Ionicons'} name={'image-outline'} size={45}color={'white'} />,
+  name: '',
 };

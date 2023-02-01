@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ScrollView,
   ToastAndroid,
+  TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
 import Texts from '../../component/atoms/Textst';
@@ -14,6 +15,7 @@ import TextInputs from '../../component/atoms/Texinputs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SignIn({navigation}) {
+
   const [auth, setauth] = useState({
     email: '',
     password: '',
@@ -35,6 +37,7 @@ export default function SignIn({navigation}) {
   };
   return (
     <ScrollView style={{backgroundColor: '#FFFFFF'}}>
+     
       <View style={{flex: 1}}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icons

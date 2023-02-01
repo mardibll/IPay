@@ -68,6 +68,8 @@ export default function Home({navigation}) {
                     onPress={() => {
                       if (item.name == 'Pocket') {
                         navigation.navigate('ScreenPocket');
+                      } else if (item.name == 'Scan') {
+                        navigation.navigate('ScreenScan');
                       } else {
                       }
                     }}>

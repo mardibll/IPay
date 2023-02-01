@@ -5,7 +5,6 @@ import Buttons from '../../component/atoms/Buttons';
 
 import React, {useEffect} from 'react';
 export default function CreateAccount({navigation}) {
-
   return (
     <View style={{alignItems: 'center', flex: 1, backgroundColor: '#F5F5F5'}}>
       <Image source={ic_create} style={{height: 400, width: 400}} />

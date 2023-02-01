@@ -7,6 +7,7 @@ import Succes from '../views/auth/Succes';
 import Veriffy from '../views/auth/Veriffy';
 import Home from '../views/homescreen';
 import ScreenPocket from '../views/homescreen/components/pocket';
+import ScreenScan from '../views/homescreen/components/scan/Scan';
 import TopUP from '../views/homescreen/components/top_up';
 
 // const dataTab = [
@@ -69,6 +70,10 @@ export const dataStack = [
   {
     name: 'ScreenPocket',
     component: ScreenPocket,
+  },
+  {
+    name: 'ScreenScan',
+    component: ScreenScan,
   },
   
 ];
