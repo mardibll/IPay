@@ -1,4 +1,4 @@
-package com.ipay;
+package com.ipays;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
