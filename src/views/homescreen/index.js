@@ -103,6 +103,8 @@ export default function Home({navigation}) {
                     onPress={() => {
                       if (item.name == 'Top Up') {
                         navigation.navigate('TopUP');
+                      } else if (item.name == 'Utilities') {
+                        navigation.navigate('ScreenUtilities');
                       } else {
                       }
                     }}>

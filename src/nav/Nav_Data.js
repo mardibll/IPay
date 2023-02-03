@@ -9,6 +9,7 @@ import Home from '../views/homescreen';
 import ScreenPocket from '../views/homescreen/components/pocket';
 import ScreenScan from '../views/homescreen/components/scan/Scan';
 import TopUP from '../views/homescreen/components/top_up';
+import ScreenUtilities from '../views/homescreen/components/utilities';
 
 // const dataTab = [
 //   {
@@ -74,6 +75,10 @@ export const dataStack = [
   {
     name: 'ScreenScan',
     component: ScreenScan,
+  },
+  {
+    name: 'ScreenUtilities',
+    component: ScreenUtilities,
   },
   
 ];

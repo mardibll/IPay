@@ -15,10 +15,15 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import Texts from '../../../../component/atoms/Textst';
 import {scans} from '../../../../utils/data';
+import Icons from '../../../../component/atoms/Icons';
 export default function ScreenScan() {
   const scanner = useRef(null);
   const [Scan, setScan] = useState(false);
   const [result, setresult] = useState(null);
+  const [types, settypes] = useState(false);
+  const [light, setlight] = useState(true);
+  // console.log('ini lighut',light);
+  // console.log('ini types', types);
   const onSuccess = e => {
     Linking.openURL(e.data).catch(err =>
       console.error('An error occured', err),
@@ -27,7 +32,13 @@ export default function ScreenScan() {
   useEffect(() => {
     setresult(null);
   }, []);
-
+  const cameraTypes = () => {
+    settypes(!types);
+   
+  };
+  const flashlights = () => {
+    setlight(!light);
+  };
   return !Scan ? (
     <View style={styles.container}>
       <TouchableOpacity
@@ -41,10 +52,10 @@ export default function ScreenScan() {
     <QRCodeScanner
       cameraStyle={{height: Hight, width: Width}}
       onRead={onSuccess}
-    //   reactivate={true}
+      //   reactivate={true}
       showMarker={true}
-      cameraType={'back'}
-    //   flashMode={'torch'}
+      cameraType={types ? 'front' : 'back'}
+      //   flashMode={'torch'}
 
       markerStyle={{
         bottom: 100,
@@ -53,17 +64,33 @@ export default function ScreenScan() {
         borderColor: 'white',
         borderWidth: 4,
       }}
-      //   flashMode={RNCamera.Constants.FlashMode.torch}
-      //   topContent={
-      //     <Text style={styles.centerText}>
-      //       Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text>{' '}
-      //       on your computer and scan the QR code.
-      //     </Text>
-      //   }
-      // topContent={
-      //     <Text>hashh</Text>
-      // }
-
+      flashMode={
+        light
+          ? RNCamera.Constants.FlashMode.torch
+          : RNCamera.Constants.FlashMode.off
+      }
+      topViewStyle={{
+        position: 'absolute',
+        zIndex: 99999,
+      }}
+      topContent={
+        <>
+          <View style={{padding: 15, flexDirection: 'row', width: '100%'}}>
+            <TouchableOpacity onPress={flashlights} style={{}}>
+              <Icons
+                type={'MaterialCommunityIcons'}
+                name={light ? 'flashlight' : 'flashlight-off'}
+                size={25}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={cameraTypes}
+              style={{alignSelf: 'center', left: 130}}>
+              <Icons type={'Ionicons'} name={'camera-reverse'} size={25} />
+            </TouchableOpacity>
+          </View>
+        </>
+      }
       bottomViewStyle={{
         position: 'absolute',
         bottom: 100,
@@ -80,7 +107,7 @@ export default function ScreenScan() {
               width: '75%',
               justifyContent: 'space-between',
               flexDirection: 'row',
-              //   backgroundColor: 'blue',
+              // backgroundColor: 'blue',
               alignItems: 'center',
               paddingTop: 40,
               //   justifyContent:"center"
