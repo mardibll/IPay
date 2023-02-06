@@ -14,6 +14,7 @@ import Texts from '../../component/atoms/Textst';
 import {Convenient, Financial, Service} from '../../utils/data';
 import {ic_avatar, ic_imgChard} from '../../assets/Images';
 import {Carousel} from 'react-native-snap-carousel';
+import DB from '../../utils/Sqlite';
 const SLIDER_WIDTH = Dimensions.get('window').width;
 const ITEM_WIDTH = Math.round(SLIDER_WIDTH);
 export default function Home({navigation}) {
@@ -105,7 +106,18 @@ export default function Home({navigation}) {
                         navigation.navigate('TopUP');
                       } else if (item.name == 'Utilities') {
                         navigation.navigate('ScreenUtilities');
-                      } else {
+                      } else if (item.name == 'Travel') {
+                        DB.getList('User_Data', 'id')
+                          .then(res => {
+                            // setdata(res.data);
+                            console.log(res);
+                          })
+                          .catch(err => {
+                            console.log(err);
+                            // setloading(false);
+                          });
+                      } else if (item.name == 'Savings') {
+                        navigation.navigate('ScreenUtilities');
                       }
                     }}>
                     <View

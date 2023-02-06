@@ -13,9 +13,9 @@ import Buttons from '../../component/atoms/Buttons';
 import Icons from '../../component/atoms/Icons';
 import TextInputs from '../../component/atoms/Texinputs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import DB from '../../utils/Sqlite';
 
 export default function SignIn({navigation}) {
-
   const [auth, setauth] = useState({
     email: '',
     password: '',
@@ -29,15 +29,24 @@ export default function SignIn({navigation}) {
     } else if (auth.password.length < 8) {
       ToastAndroid.show(`${Object.keys(auth)[1]} min 8 characters `, 2000);
     } else {
-      try {
-        await AsyncStorage.setItem('token', auth.email);
-        navigation.replace('Home');
-      } catch (error) {}
+      DB.getSingle('User_Data', auth)
+        .then(async res => {
+          // setloading(false);
+          if (res.data.length == 0) {
+            ToastAndroid.show('No data user Found!', ToastAndroid.SHORT);
+          } else {
+            await AsyncStorage.setItem('token', auth.email);
+            navigation.replace('Home');
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          // setloading(false);
+        });
     }
   };
   return (
     <ScrollView style={{backgroundColor: '#FFFFFF'}}>
-     
       <View style={{flex: 1}}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icons

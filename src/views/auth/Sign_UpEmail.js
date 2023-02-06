@@ -4,19 +4,41 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  ToastAndroid,
 } from 'react-native';
 import React, {useState} from 'react';
 import Texts from '../../component/atoms/Textst';
 import Icons from '../../component/atoms/Icons';
 import TextInputs from '../../component/atoms/Texinputs';
 import Buttons from '../../component/atoms/Buttons';
+import DB from '../../utils/Sqlite';
 
-export default function SinUpEmail({navigation}) {
+export default function SinUpEmail({navigation, ...props}) {
   const [authregist, setauthregist] = useState({
     email: '',
     password: '',
     confirm: '',
   });
+  const doSignUp = () => {
+    if (authregist.email == '') {
+      ToastAndroid.show('email is required!', ToastAndroid.SHORT);
+    } else if (authregist.password == '') {
+      ToastAndroid.show('password is required!', ToastAndroid.SHORT);
+    } else if (authregist.confirm != authregist.password) {
+      ToastAndroid.show('confirmasi password is required!', ToastAndroid.SHORT);
+    } else {
+      // setloading(true);
+      DB.post('User_Data', authregist)
+        .then(res => {
+          // setloading(false);
+          navigation.replace('Succes');
+        })
+        .catch(err => {
+          console.log(err);
+          // setloading(false);
+        });
+    }
+  };
   return (
     <ScrollView style={{backgroundColor: '#FFFFFF'}}>
       <View style={{flex: 1}}>
@@ -55,7 +77,8 @@ export default function SinUpEmail({navigation}) {
             styleBtn={styles.btn}
             title={'Create an account'}
             textStyle={[styles.text, {color: '#FFFFFF'}]}
-            onPress={() => navigation.replace('Succes')}
+            onPress={doSignUp}
+            // onPress={() => navigation.replace('Succes')}
             bordered
           />
           <Texts style={styles.body}>
