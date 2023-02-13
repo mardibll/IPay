@@ -57,7 +57,6 @@ const DB = {
    *
    */
   getSingle(table, orderBy) {
-    console.log('ini data table dari getSingle',table);
     console.log('ini data object dari getSingle',orderBy);
     return new Promise((resolve, reject) => {
       var ok = Object.keys(orderBy);
